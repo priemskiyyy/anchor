@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "Session Lab",
+    "slug": "anchor-session-lab",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"],
+    "ios": {
+      "bundleIdentifier": "dev.anchor.example"
+    },
+    "android": {
+      "package": "dev.anchor.example"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
