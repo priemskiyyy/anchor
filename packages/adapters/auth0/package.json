@@ -1,0 +1,60 @@
+{
+  "name": "@priemskiyyy/anchor-auth0",
+  "version": "0.1.0",
+  "description": "Auth0 sessions for Anchor: the cached ID token, access tokens per audience and Auth0's logout page on ending, over the auth0-spa-js client you inject.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/adapters/auth0"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../../.. --project auth0"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "@auth0/auth0-spa-js": ">=2.4.0 <3"
+  },
+  "peerDependenciesMeta": {
+    "@auth0/auth0-spa-js": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*"
+  },
+  "keywords": [
+    "auth0",
+    "oidc",
+    "browser",
+    "typescript",
+    "anchor",
+    "adapter"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
