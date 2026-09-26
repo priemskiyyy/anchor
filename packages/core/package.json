@@ -1,0 +1,72 @@
+{
+  "name": "@priemskiyyy/anchor",
+  "version": "0.1.0",
+  "description": "Provider-independent session state for TypeScript: one typed, reactive, race-safe view of the current session, with tokens and sign-out bound to the session they belong to.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./mock": {
+      "types": "./dist/mock.d.ts",
+      "import": "./dist/mock.js",
+      "default": "./dist/mock.js"
+    },
+    "./testing": {
+      "types": "./dist/testing.d.ts",
+      "import": "./dist/testing.js",
+      "default": "./dist/testing.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../.. --project core"
+  },
+  "keywords": [
+    "session",
+    "authentication",
+    "auth",
+    "firebase-auth",
+    "supabase",
+    "auth0",
+    "clerk",
+    "better-auth",
+    "typescript",
+    "anchor",
+    "react-native",
+    "expo"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/",
+  "peerDependencies": {
+    "vitest": ">=4.0.0 <5"
+  },
+  "peerDependenciesMeta": {
+    "vitest": {
+      "optional": true
+    }
+  }
+}
