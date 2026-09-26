@@ -1,0 +1,38 @@
+{
+  "name": "example-shared",
+  "private": true,
+  "type": "module",
+  "description": "The Session Lab shared by every example: the in-page world, the provider catalog of real adapters over simulated SDKs, Harbor's data layer, the lab with its misbehaviors and tours, the formatting and the Tailwind theme.",
+  "exports": {
+    "./formatting/*": "./formatting/*.ts",
+    "./harbor/*": "./harbor/*.ts",
+    "./lab/*": "./lab/*.ts",
+    "./providers/*": "./providers/*.ts",
+    "./types/*": "./types/*.ts",
+    "./utils/*": "./utils/*.ts",
+    "./world/*": "./world/*.ts",
+    "./ui/theme.css": "./ui/theme.css",
+    "./ui/constants/*": "./ui/constants/*.ts",
+    "./ui/styles/*": "./ui/styles/*.ts"
+  },
+  "scripts": {
+    "lint:typescript": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@priemskiyyy/anchor": "workspace:*",
+    "@priemskiyyy/anchor-amplify": "workspace:*",
+    "@priemskiyyy/anchor-auth0": "workspace:*",
+    "@priemskiyyy/anchor-better-auth": "workspace:*",
+    "@priemskiyyy/anchor-clerk": "workspace:*",
+    "@priemskiyyy/anchor-firebase": "workspace:*",
+    "@priemskiyyy/anchor-http": "workspace:*",
+    "@priemskiyyy/anchor-keycloak": "workspace:*",
+    "@priemskiyyy/anchor-msal": "workspace:*",
+    "@priemskiyyy/anchor-oidc": "workspace:*",
+    "@priemskiyyy/anchor-okta": "workspace:*",
+    "@priemskiyyy/anchor-supabase": "workspace:*",
+    "@priemskiyyy/anchor-workos": "workspace:*",
+    "class-variance-authority": "0.7.1",
+    "ts-pattern": "5.9.0"
+  }
+}
