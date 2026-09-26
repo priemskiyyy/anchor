@@ -1,0 +1,55 @@
+{
+  "name": "@priemskiyyy/anchor-solid",
+  "version": "0.1.0",
+  "description": "Solid bindings for Anchor: a provider, and primitives that read the Anchor and its session state, with selectors, and never start, read or mint anything.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/solid"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../.. --project solid --project solid-ssr --project solid-hydration"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "solid-js": ">=1.9.0 <2"
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*"
+  },
+  "keywords": [
+    "solid-js",
+    "primitives",
+    "session",
+    "authentication",
+    "typescript",
+    "anchor"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
