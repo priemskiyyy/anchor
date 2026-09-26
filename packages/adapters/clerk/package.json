@@ -1,0 +1,61 @@
+{
+  "name": "@priemskiyyy/anchor-clerk",
+  "version": "0.1.0",
+  "description": "Clerk sessions for Anchor: the session with its organization, actor and pending task observed through the listener, and session tokens per JWT template, over the Clerk instance you inject.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/adapters/clerk"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../../.. --project clerk"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "@clerk/clerk-js": ">=6.0.0 <7"
+  },
+  "peerDependenciesMeta": {
+    "@clerk/clerk-js": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*"
+  },
+  "keywords": [
+    "clerk",
+    "clerk-expo",
+    "browser",
+    "react-native",
+    "typescript",
+    "anchor",
+    "adapter"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
