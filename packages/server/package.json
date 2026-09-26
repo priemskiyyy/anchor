@@ -1,0 +1,67 @@
+{
+  "name": "@priemskiyyy/anchor-server",
+  "version": "0.1.0",
+  "description": "Request-scoped session reads for Anchor: one request in, its session state and the headers the provider wants set out, with an explicit allowlist for hydration.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/server"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing.d.ts",
+      "import": "./dist/testing.js",
+      "default": "./dist/testing.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../.. --project server"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "vitest": ">=4.0.0 <5"
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*"
+  },
+  "keywords": [
+    "server",
+    "ssr",
+    "request",
+    "cookies",
+    "hydration",
+    "session",
+    "typescript",
+    "anchor"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/",
+  "peerDependenciesMeta": {
+    "vitest": {
+      "optional": true
+    }
+  }
+}
