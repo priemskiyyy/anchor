@@ -1,0 +1,61 @@
+{
+  "name": "@priemskiyyy/anchor-supabase",
+  "version": "0.1.0",
+  "description": "Supabase Auth sessions for Anchor: the session observed through onAuthStateChange, its access tokens and a local-scope sign-out, over the supabase-js client you inject.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/adapters/supabase"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../../.. --project supabase"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "@supabase/supabase-js": ">=2.27.0 <3"
+  },
+  "peerDependenciesMeta": {
+    "@supabase/supabase-js": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*"
+  },
+  "keywords": [
+    "supabase",
+    "supabase-auth",
+    "browser",
+    "react-native",
+    "typescript",
+    "anchor",
+    "adapter"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
