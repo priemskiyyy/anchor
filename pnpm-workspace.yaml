@@ -1,0 +1,26 @@
+packages:
+  - packages/*
+  - packages/adapters/*
+  - examples/*
+
+allowBuilds:
+  # The provider SDKs are here for their types and tests only. None of their
+  # install scripts, binaries or generated code is ever run.
+  "@firebase/util": false
+  browser-tabs-lock: false
+  bufferutil: false
+  core-js: false
+  esbuild: true
+  protobufjs: false
+  utf-8-validate: false
+
+minimumReleaseAgeExclude:
+  - "@better-auth/core@1.7.6"
+  - "@better-auth/drizzle-adapter@1.7.6"
+  - "@better-auth/expo@1.7.6"
+  - "@better-auth/kysely-adapter@1.7.6"
+  - "@better-auth/memory-adapter@1.7.6"
+  - "@better-auth/mongo-adapter@1.7.6"
+  - "@better-auth/prisma-adapter@1.7.6"
+  - "@better-auth/telemetry@1.7.6"
+  - better-auth@1.7.6
