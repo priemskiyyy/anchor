@@ -1,0 +1,30 @@
+name: Bug report
+description: Report incorrect behavior with a reproducible example.
+labels: [bug]
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened?
+      description: Describe the actual behavior and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Link a minimal repository or provide steps and a small code example, ideally over the mock adapter from `@priemskiyyy/anchor/mock`. Include the Anchor options, the adapter and its options, and whether it happens before `start()`, across a sign-in, a sign-out or a switch of account or organization, during `getToken()` or `end()`, or after `dispose()`.
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Environment
+      description: Include Anchor packages, the provider SDK and its version, framework, browser, Node, React Native or Expo version, and operating system.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Include `anchor.diagnostics.get()` and the devtools timeline or `anchor.diagnostics.events` around the problem. Diagnostics carry no token, user data or provider error, but remove tokens, cookies, credentials and personal data from anything else you paste.
