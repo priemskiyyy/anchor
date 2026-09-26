@@ -1,0 +1,60 @@
+{
+  "name": "@priemskiyyy/anchor-firebase",
+  "version": "0.1.0",
+  "description": "Firebase Auth sessions for Anchor: the signed-in user observed through onIdTokenChanged and its ID tokens, over the modular Auth instance you inject.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/adapters/firebase"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../../.. --project firebase"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "firebase": ">=10.3.0 <13"
+  },
+  "peerDependenciesMeta": {
+    "firebase": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*"
+  },
+  "keywords": [
+    "firebase",
+    "firebase-auth",
+    "browser",
+    "typescript",
+    "anchor",
+    "adapter"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
