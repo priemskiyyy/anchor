@@ -1,0 +1,65 @@
+{
+  "name": "@priemskiyyy/anchor-workos-node",
+  "version": "0.1.0",
+  "description": "WorkOS sessions for Anchor's server reads: each request's sealed session authenticated, refreshed when it expires, over the @workos-inc/node client you inject.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/adapters/workos-node"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../../.. --project workos-node"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "@priemskiyyy/anchor-server": ">=0.1.0 <0.2",
+    "@workos-inc/node": ">=10.8.0 <11"
+  },
+  "peerDependenciesMeta": {
+    "@workos-inc/node": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*",
+    "@priemskiyyy/anchor-server": "workspace:*",
+    "@priemskiyyy/anchor-workos": "workspace:*"
+  },
+  "keywords": [
+    "workos",
+    "authkit",
+    "server",
+    "ssr",
+    "node",
+    "typescript",
+    "anchor",
+    "adapter"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
