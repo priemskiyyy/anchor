@@ -1,0 +1,19 @@
+:root {
+  --vp-c-brand-1: #0369a1;
+  --vp-c-brand-2: #0284c7;
+  --vp-c-brand-3: #0369a1;
+  --vp-c-brand-soft: rgb(2 132 199 / 14%);
+}
+
+.dark {
+  --vp-c-brand-1: #7dd3fc;
+  --vp-c-brand-2: #bae6fd;
+  --vp-c-brand-3: #0284c7;
+  --vp-c-brand-soft: rgb(125 211 252 / 16%);
+}
+
+/* Wide comparison tables scroll inside the page instead of stretching it. */
+.vp-doc table {
+  display: block;
+  overflow-x: auto;
+}
