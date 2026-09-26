@@ -1,0 +1,65 @@
+{
+  "name": "@priemskiyyy/anchor-better-auth-node",
+  "version": "0.1.0",
+  "description": "Better Auth sessions for Anchor's server reads: each request's session and the headers Better Auth wants set, over the server's auth instance you inject.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/adapters/better-auth-node"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../../.. --project better-auth-node"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "@priemskiyyy/anchor-server": ">=0.1.0 <0.2",
+    "better-auth": ">=1.6.0 <2"
+  },
+  "peerDependenciesMeta": {
+    "better-auth": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*",
+    "@priemskiyyy/anchor-better-auth": "workspace:*",
+    "@priemskiyyy/anchor-server": "workspace:*"
+  },
+  "keywords": [
+    "better-auth",
+    "server",
+    "ssr",
+    "node",
+    "cookie-session",
+    "typescript",
+    "anchor",
+    "adapter"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
