@@ -1,0 +1,56 @@
+{
+  "name": "@priemskiyyy/anchor-react",
+  "version": "0.1.0",
+  "description": "React bindings for Anchor: a provider, and hooks that read the Anchor and its session state, with selectors, and never start, read or mint anything.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priemskiyyy/anchor.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/priemskiyyy/anchor/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint:typescript": "tsc --noEmit -p .",
+    "lint:eslint": "eslint src",
+    "test:unit": "vitest run --root ../.. --project react"
+  },
+  "peerDependencies": {
+    "@priemskiyyy/anchor": ">=0.1.0 <0.2",
+    "react": ">=19.2.0 <20"
+  },
+  "devDependencies": {
+    "@priemskiyyy/anchor": "workspace:*"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "hooks",
+    "session",
+    "authentication",
+    "typescript",
+    "anchor"
+  ],
+  "homepage": "https://priemskiyyy.github.io/anchor/"
+}
