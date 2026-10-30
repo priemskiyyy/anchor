@@ -91,6 +91,12 @@ Initial preview. APIs may change before 1.0. Real provider and native device ver
 - Ending clears each declared audience's API credentials and the login on the device, and answers Auth0's own session as `unknown`.
 - Requires `@priemskiyyy/anchor` 0.1.
 
+## @priemskiyyy/anchor-better-auth Unreleased
+
+- `sessionToken()` is an opt-in token profile: `session.getToken("api")` mints the held session's token as a `Bearer` session token for a backend behind Better Auth's `bearer()` plugin, refusing another session with `SESSION_CHANGED` and a server that sends no token with `UNSUPPORTED`; `forceRefresh` refreshes the session atom first.
+- `confirmation: { timeout }` answers a session the client holds while its fetch is in flight, such as the Expo plugin's cached one, once the server has not confirmed it within the timeout, instead of waiting for the server however long it takes. Only a settled fetch ever answers no session.
+- Ending waits at most two seconds for the session atom to refresh and then signs out against the session the atom held, so a slow network never holds up a sign-out.
+
 ## @priemskiyyy/anchor-better-auth 0.1.0 - 2026-10-30
 
 - First release, for better-auth 1.6 and later, the first to keep the session its atom holds through a failed fetch, over the Better Auth client of every framework, and on React Native with `@better-auth/expo`. The session atom behind `useSession` pushes every settled change and serves every read, so an offline start on React Native answers the Expo plugin's cached session, and an offline ending clears the session on the device.

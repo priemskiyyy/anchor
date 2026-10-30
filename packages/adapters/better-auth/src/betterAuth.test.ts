@@ -3,11 +3,22 @@ import type { AnchorSession, SessionState } from "@priemskiyyy/anchor";
 import { afterEach, expect, test, vi } from "vitest";
 
 import { betterAuth } from "src/betterAuth";
+import { sessionToken } from "src/sessionToken";
 import { createFakeBetterAuthClient } from "src/fakeBetterAuthClient.fixture";
+import { END_REFRESH_BUDGET } from "src/utils/constants/betterAuth";
 
-const create = (options?: { expo?: boolean }) => {
-  const fake = createFakeBetterAuthClient(options);
-  const anchor = new Anchor({ adapter: betterAuth({ sdk: fake.sdk }) });
+const create = ({
+  expo,
+  confirmation,
+}: { expo?: boolean; confirmation?: { timeout: number } } = {}) => {
+  const fake = createFakeBetterAuthClient({ expo });
+
+  const anchor = new Anchor({
+    adapter: betterAuth({
+      sdk: fake.sdk,
+      ...(confirmation === undefined ? {} : { confirmation }),
+    }),
+  });
 
   return { fake, anchor };
 };
@@ -225,6 +236,71 @@ test("on React Native, an online start waits for the server, so a cached session
   expect(statuses).toEqual(["signed-out"]);
 });
 
+test("with a confirmation timeout, a restored session the server has not confirmed in time is answered at the timeout, and not before", async () => {
+  vi.useFakeTimers();
+
+  const { fake, anchor } = create({
+    expo: true,
+    confirmation: { timeout: 1_500 },
+  });
+
+  fake.cacheSession("user_ada");
+  fake.holdFetches();
+  anchor.start().catch(() => {});
+
+  await vi.advanceTimersByTimeAsync(1_499);
+  expect(anchor.session.get().status).toBe("initializing");
+
+  await vi.advanceTimersByTimeAsync(1);
+  expect(getSubject(anchor.session.get())).toBe("user_ada");
+});
+
+test("with a confirmation timeout, the server's answer after the timeout replaces the unconfirmed session", async () => {
+  vi.useFakeTimers();
+
+  const { fake, anchor } = create({
+    expo: true,
+    confirmation: { timeout: 1_500 },
+  });
+
+  fake.cacheSession("user_ada");
+  fake.holdFetches();
+  anchor.start().catch(() => {});
+  await vi.advanceTimersByTimeAsync(1_500);
+  fake.endOnServer();
+  fake.settleFetches();
+  await vi.advanceTimersByTimeAsync(0);
+
+  expect(anchor.session.get()).toEqual({ status: "signed-out" });
+});
+
+test("with a confirmation timeout, a restored session the server ended in time is never shown", async () => {
+  const { fake, anchor } = create({
+    expo: true,
+    confirmation: { timeout: 1_500 },
+  });
+
+  const statuses: string[] = [];
+
+  anchor.session.subscribe(() => statuses.push(anchor.session.get().status));
+  fake.cacheSession("user_ada");
+  fake.endOnServer();
+  await anchor.start();
+  await settle();
+
+  expect(statuses).toEqual(["signed-out"]);
+});
+
+test("with a confirmation timeout of zero, a restored session is answered without waiting for the server", async () => {
+  const { fake, anchor } = create({ expo: true, confirmation: { timeout: 0 } });
+
+  fake.cacheSession("user_ada");
+  fake.holdFetches();
+  anchor.start().catch(() => {});
+
+  await expect.poll(() => getSubject(anchor.session.get())).toBe("user_ada");
+});
+
 test("on React Native, an online start with a cached session the server still holds is signed in as it", async () => {
   const { fake, anchor } = create({ expo: true });
 
@@ -362,6 +438,30 @@ test("ending a session the client no longer holds, once the atom has refreshed, 
   expect(fake.signOuts()).toBe(0);
 });
 
+test("ending does not wait for a session fetch that hangs: after the budget it signs out the session the atom holds", async () => {
+  vi.useFakeTimers();
+
+  const { fake, anchor } = create();
+
+  fake.signIn("user_ada");
+  await anchor.start();
+
+  const ada = getSignedInSession(anchor.session.get());
+
+  fake.holdFetches();
+
+  const ending = ada.end();
+
+  await vi.advanceTimersByTimeAsync(END_REFRESH_BUDGET);
+
+  await expect(ending).resolves.toEqual({
+    local: "completed",
+    remote: "completed",
+    navigation: null,
+  });
+  expect(fake.signOuts()).toBe(1);
+});
+
 test("a sign-out Better Auth answers with an error rejects with END_FAILED, and the session stays", async () => {
   const { fake, anchor } = create();
   const failure = { status: 500, statusText: "Internal Server Error" };
@@ -416,6 +516,57 @@ test("on React Native offline, the Expo plugin clears the stored session before 
     },
   );
   expect(anchor.session.get()).toEqual({ status: "signed-out" });
+});
+
+test("a session token profile mints the session's token for its session, and never for another", async () => {
+  const fake = createFakeBetterAuthClient();
+
+  const anchor = new Anchor({
+    adapter: betterAuth({ sdk: fake.sdk, tokens: { api: sessionToken() } }),
+  });
+
+  fake.signIn("user_ada");
+  await anchor.start();
+
+  const ada = getSignedInSession(anchor.session.get());
+
+  await expect(ada.getToken("api")).resolves.toEqual({
+    value: "token_1",
+    kind: "session-token",
+    scheme: "Bearer",
+  });
+
+  fake.switchSilently("user_grace");
+  await anchor.sync();
+
+  await expect(ada.getToken("api")).rejects.toMatchObject({
+    code: "SESSION_CHANGED",
+  });
+});
+
+test("a new Better Auth session of the same user mints its own token, and the replaced session mints none", async () => {
+  const fake = createFakeBetterAuthClient();
+
+  const anchor = new Anchor({
+    adapter: betterAuth({ sdk: fake.sdk, tokens: { api: sessionToken() } }),
+  });
+
+  fake.signIn("user_ada");
+  await anchor.start();
+
+  const first = getSignedInSession(anchor.session.get());
+
+  fake.signIn("user_ada");
+  await expect
+    .poll(() => getSignedInSession(anchor.session.get()).key)
+    .not.toBe(first.key);
+
+  await expect(
+    getSignedInSession(anchor.session.get()).getToken("api"),
+  ).resolves.toMatchObject({ value: "token_2" });
+  await expect(first.getToken("api")).rejects.toMatchObject({
+    code: "SESSION_CHANGED",
+  });
 });
 
 test("a client without a session atom fails to start", async () => {

@@ -56,7 +56,7 @@ const createDevice = () => {
   });
 
   const storage = createSecureStore();
-  const network = { online: true };
+  const network = { online: true, hang: false };
 
   // No cookie jar: on React Native the Expo plugin carries the cookie from secure storage itself.
   const createClient = () =>
@@ -69,6 +69,10 @@ const createDevice = () => {
         customFetchImpl: async (input, init) => {
           if (!network.online) {
             throw new TypeError("Network request failed");
+          }
+
+          if (network.hang) {
+            await new Promise(() => {});
           }
 
           return server.handler(new Request(input, init));
@@ -182,4 +186,66 @@ test("on React Native offline: a restart answers the session the Expo plugin cac
 
   expect(online.session.get()).toEqual({ status: "signed-out" });
   online.dispose();
+});
+
+test("on React Native with a confirmation timeout: a restart on a network that never answers shows the session the Expo plugin cached once the timeout passes", async () => {
+  const device = createDevice();
+  const client = device.createClient();
+  const anchor = new Anchor({ adapter: betterAuth({ sdk: client }) });
+
+  await anchor.start();
+
+  const { data } = await client.signUp.email({
+    email: "hopper@example.com",
+    password: "correct-horse-battery-staple",
+    name: "Hopper",
+  });
+
+  await expect.poll(() => getSubject(anchor.session.get())).toBe(data?.user.id);
+  anchor.dispose();
+  device.network.hang = true;
+
+  const restarted = new Anchor({
+    adapter: betterAuth({
+      sdk: device.createClient(),
+      confirmation: { timeout: 50 },
+    }),
+  });
+
+  restarted.start().catch(() => {});
+
+  await expect
+    .poll(() => getSubject(restarted.session.get()))
+    .toBe(data?.user.id);
+  restarted.dispose();
+});
+
+test("on React Native without a confirmation timeout: the same restart waits for the network and shows no session", async () => {
+  const device = createDevice();
+  const client = device.createClient();
+  const anchor = new Anchor({ adapter: betterAuth({ sdk: client }) });
+
+  await anchor.start();
+
+  const { data } = await client.signUp.email({
+    email: "turing@example.com",
+    password: "correct-horse-battery-staple",
+    name: "Turing",
+  });
+
+  await expect.poll(() => getSubject(anchor.session.get())).toBe(data?.user.id);
+  anchor.dispose();
+  device.network.hang = true;
+
+  const restarted = new Anchor({
+    adapter: betterAuth({ sdk: device.createClient() }),
+  });
+
+  restarted.start().catch(() => {});
+  await new Promise((resolve) => {
+    setTimeout(resolve, 200);
+  });
+
+  expect(restarted.session.get().status).toBe("initializing");
+  restarted.dispose();
 });

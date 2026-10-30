@@ -12,7 +12,9 @@ import { createAuthClient } from "better-auth/react";
 import { expectTypeOf } from "vitest";
 
 import { betterAuth } from "src/betterAuth";
+import { sessionToken } from "src/sessionToken";
 import type { BetterAuthClientLike } from "src/types/BetterAuthClientLike";
+import type { BetterAuthSessionToken } from "src/types/BetterAuthSessionToken";
 import type { BetterAuthSessionUser } from "src/types/BetterAuthSessionUser";
 import type { BetterAuthUserOf } from "src/types/BetterAuthUserOf";
 
@@ -71,8 +73,32 @@ expectTypeOf(mapped).toEqualTypeOf<
   >
 >();
 
+const tokened = betterAuth({
+  sdk: client,
+  tokens: { api: sessionToken(), reports: sessionToken() },
+});
+
+expectTypeOf(sessionToken()).toEqualTypeOf<BetterAuthSessionToken>();
+expectTypeOf(tokened).toEqualTypeOf<
+  SessionAdapter<BetterAuthSessionUser, Client, "api" | "reports">
+>();
+expectTypeOf(
+  betterAuth({
+    sdk: client,
+    user: (user) => user.id,
+    tokens: { api: sessionToken() },
+  }),
+).toEqualTypeOf<SessionAdapter<string, Client, "api">>();
+expectTypeOf(new Anchor({ adapter: tokened }).session.get()).not.toBeAny();
+
 // @ts-expect-error The adapter takes the client, not the server's auth instance.
 export const wrongSdk = betterAuth({ sdk: server });
 
-// @ts-expect-error Better Auth sessions are cookies, so the adapter declares no token profiles.
+// @ts-expect-error A token profile is what sessionToken() returns, not an empty object.
 export const wrongProfile = betterAuth({ sdk: client, tokens: { api: {} } });
+
+export const wrongTimeout = betterAuth({
+  sdk: client,
+  // @ts-expect-error The confirmation timeout is a number of milliseconds.
+  confirmation: { timeout: "soon" },
+});

@@ -1,7 +1,7 @@
 {
   "name": "@priemskiyyy/anchor-better-auth",
   "version": "0.1.0",
-  "description": "Better Auth sessions for Anchor: the cookie session observed and read through the session atom behind useSession, in the browser and on React Native with the Expo plugin, over the Better Auth client you inject.",
+  "description": "Better Auth sessions for Anchor: the cookie session observed and read through the session atom behind useSession, and its token minted on request, in the browser and on React Native with the Expo plugin, over the Better Auth client you inject.",
   "type": "module",
   "license": "MIT",
   "repository": {

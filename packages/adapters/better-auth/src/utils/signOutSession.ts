@@ -7,7 +7,7 @@ import {
   LOCALLY_ENDED_RESULT,
   NOT_APPLICABLE_END_RESULT,
 } from "src/utils/constants/answers";
-import { getRefreshedSession } from "src/utils/getRefreshedSession";
+import { getRefreshedOrHeldSession } from "src/utils/getRefreshedOrHeldSession";
 import { getSignOutOutcome } from "src/utils/getSignOutOutcome";
 import { isSessionUser } from "src/utils/isSessionUser";
 
@@ -16,7 +16,7 @@ export const signOutSession = async (
   atom: BetterAuthSessionAtomLike,
   { session, signal }: EndRequest,
 ): Promise<EndResult> => {
-  if (!isSessionUser(await getRefreshedSession(atom, signal), session)) {
+  if (!isSessionUser(await getRefreshedOrHeldSession(atom, signal), session)) {
     return NOT_APPLICABLE_END_RESULT;
   }
 

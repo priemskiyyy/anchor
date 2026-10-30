@@ -21,3 +21,6 @@ export const LOCALLY_ENDED_RESULT = Object.freeze({
   remote: "unknown",
   navigation: null,
 });
+
+/** The one profile Better Auth can mint: the token of the session the client holds. */
+export const SESSION_TOKEN_PROFILE = Object.freeze({ kind: "session-token" });

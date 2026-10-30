@@ -45,7 +45,7 @@ type FakeSession = {
   user: ReturnType<typeof createUser>;
   session: {
     id: string;
-    token: string;
+    token: string | undefined;
     userId: string;
     expiresAt: Date;
     activeOrganizationId: string | null;
@@ -65,7 +65,10 @@ const createFlight = (): Flight => {
 };
 
 // Modelled on better-auth 1.7.6's session atom: a new subscriber hears the current value at once; the first subscriber's mount joins a fetch in flight or starts one; each fetch marks the atom pending or refetching, keeps its data when it fails except on a 401, and is cancelled by a newer one; a sign-in, a sign-out or an update through the client refetches while it has subscribers. With `expo`, it is modelled on @better-auth/expo 1.7.6 as well: the first fetch restores a cached session into an atom without data, and a sign-out clears the stored session before asking the server.
-export const createFakeBetterAuthClient = ({ expo = false } = {}) => {
+export const createFakeBetterAuthClient = ({
+  expo = false,
+  omitToken = false,
+} = {}) => {
   const listeners = new Set<Listener>();
   const held: Array<() => void> = [];
 
@@ -210,7 +213,7 @@ export const createFakeBetterAuthClient = ({ expo = false } = {}) => {
       user: createUser(id, anonymous),
       session: {
         id: `session_${sessions}`,
-        token: `token_${sessions}`,
+        token: omitToken ? undefined : `token_${sessions}`,
         userId: id,
         expiresAt: new Date(86_400_000),
         activeOrganizationId: organization ?? null,

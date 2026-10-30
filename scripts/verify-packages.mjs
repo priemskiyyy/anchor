@@ -94,7 +94,7 @@ const SURFACES = {
   "@priemskiyyy/anchor-auth0": ["accessToken", "auth0"],
   "@priemskiyyy/anchor-auth0-react-native": ["accessToken", "auth0"],
   "@priemskiyyy/anchor-authjs": ["authjs"],
-  "@priemskiyyy/anchor-better-auth": ["betterAuth"],
+  "@priemskiyyy/anchor-better-auth": ["betterAuth", "sessionToken"],
   "@priemskiyyy/anchor-better-auth-node": ["betterAuth"],
   "@priemskiyyy/anchor-clerk": ["clerk", "sessionToken"],
   "@priemskiyyy/anchor-clerk-node": ["clerk"],

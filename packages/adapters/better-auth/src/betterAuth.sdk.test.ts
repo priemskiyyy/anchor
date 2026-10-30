@@ -3,9 +3,11 @@ import type { SessionState } from "@priemskiyyy/anchor";
 import { betterAuth as createAuthServer } from "better-auth";
 import { memoryAdapter } from "better-auth/adapters/memory";
 import { createAuthClient } from "better-auth/client";
+import { bearer } from "better-auth/plugins";
 import { expect, test } from "vitest";
 
 import { betterAuth } from "src/betterAuth";
+import { sessionToken } from "src/sessionToken";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -15,6 +17,7 @@ const createAuthServerClient = () => {
     secret: "anchor-better-auth-sdk-test-secret-0123456789",
     database: memoryAdapter({ user: [], session: [], account: [] }),
     emailAndPassword: { enabled: true },
+    plugins: [bearer()],
     logger: { disabled: true },
   });
 
@@ -58,7 +61,7 @@ const createAuthServerClient = () => {
     },
   });
 
-  return { client, cookies };
+  return { client, cookies, server };
 };
 
 const getSubject = <TUser, TProfile extends string>(
@@ -111,5 +114,45 @@ test("the real Better Auth client and server: a sign-up reaches the session thro
     error: null,
   });
 
+  anchor.dispose();
+});
+
+test("the real Better Auth server accepts the minted session token as a bearer token without the cookie, and refuses it once the session is ended", async () => {
+  const { client, server } = createAuthServerClient();
+
+  const anchor = new Anchor({
+    adapter: betterAuth({ sdk: client, tokens: { api: sessionToken() } }),
+  });
+
+  await anchor.start();
+
+  const { data } = await client.signUp.email({
+    email: "grace@example.com",
+    password: "correct-horse-battery-staple",
+    name: "Grace",
+  });
+
+  await expect.poll(() => getSubject(anchor.session.get())).toBe(data?.user.id);
+
+  const state = anchor.session.get();
+
+  if (state.status !== "signed-in") {
+    throw new Error("Expected a session.");
+  }
+
+  const token = await state.session.getToken("api");
+
+  const headers = new Headers({
+    authorization: `${token.scheme} ${token.value}`,
+  });
+
+  expect(token).toMatchObject({ kind: "session-token", scheme: "Bearer" });
+  expect((await server.api.getSession({ headers }))?.user.id).toBe(
+    data?.user.id,
+  );
+
+  await state.session.end();
+
+  await expect(server.api.getSession({ headers })).resolves.toBe(null);
   anchor.dispose();
 });
