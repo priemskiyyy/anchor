@@ -4,6 +4,8 @@ Provider-independent session state for TypeScript, on the web, in React Native a
 
 No dependencies, ESM only, no side effects on import.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

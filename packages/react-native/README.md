@@ -2,6 +2,8 @@
 
 The React Native lifecycle hint for Anchor: read the session again each time the app returns to the foreground. Foregrounding is a reason to read, never proof that the session is valid, and nothing refreshes in the background: your provider SDK refreshes its own tokens.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

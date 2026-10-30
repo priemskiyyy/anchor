@@ -2,6 +2,8 @@
 
 Auth0 sessions for Anchor, over the auth0-spa-js client your application created. The adapter answers the ID token in the client's cache as a session of its issuer and subject, mints an access token for each profile's audience and scope through `getTokenSilently`, and ends the session by clearing the client and handing back Auth0's logout page. auth0-spa-js emits no events, so call `anchor.sync()` after a login. Logging in, handling the redirect callback and federated logout stay with `anchor.native`, which is your client.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

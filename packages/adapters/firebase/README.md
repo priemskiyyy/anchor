@@ -2,6 +2,8 @@
 
 Firebase Auth sessions for Anchor, over the modular `Auth` instance your application initialized. The adapter observes `onIdTokenChanged`, answers the signed-in user as a session of your project's issuer, mints the user's ID token for each token profile, and ends the session with `signOut()`. It never initializes Firebase and never signs anyone in: that stays with `anchor.native`, which is your `Auth`.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

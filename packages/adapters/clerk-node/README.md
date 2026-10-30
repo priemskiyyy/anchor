@@ -2,6 +2,8 @@
 
 Request-scoped Clerk sessions for Anchor's server reads. Each request's headers are authenticated with `authenticateRequest()` of the `@clerk/backend` client your server created, its user is fetched from Clerk's Backend API, and the answer carries the headers Clerk wants set on the response. A session maps as [`@priemskiyyy/anchor-clerk`](../clerk) maps the same session in the browser, so one user is one principal on both sides.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

@@ -30,5 +30,7 @@ The first publication of a new package requires an authenticated npm maintainer,
 npm login
 cd .artifacts/release/@priemskiyyy/anchor
 shasum -a 256 -c SHA256SUMS
-npm publish priemskiyyy-anchor-<version>.tgz --access public --tag latest
+npm publish priemskiyyy-anchor-<version>.tgz --access public --tag next
 ```
+
+The initial 0.1.0 packages are previews. Publish them under `next`, inspect the resulting dist-tags, and keep their verification limits in the package READMEs. The first publication can also acquire a `latest` alias, so the tag alone does not communicate preview status.

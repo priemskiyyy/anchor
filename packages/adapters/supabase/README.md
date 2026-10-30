@@ -2,6 +2,8 @@
 
 Supabase Auth sessions for Anchor, over the supabase-js client your application created. The adapter observes `auth.onAuthStateChange`, answers the Supabase session as an Anchor session of its user, mints the session's access token for each token profile, and ends only the current session with the `local` sign-out scope, never Supabase's `global` default. It never creates the client and never signs anyone in: that stays with `anchor.native`, which is your client.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

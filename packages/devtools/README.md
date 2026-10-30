@@ -6,6 +6,8 @@ It reads `anchor.diagnostics` and nothing else. It never starts the Anchor, read
 
 The inspector is framework independent. It carries its own small UI runtime inside its bundle and renders in a shadow root, so your application needs nothing installed for it, and neither side's styles reach the other.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

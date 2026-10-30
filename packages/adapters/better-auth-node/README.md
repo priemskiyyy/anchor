@@ -2,6 +2,8 @@
 
 Request-scoped Better Auth sessions for Anchor's server reads. Each request is read through the `auth` instance your server created with `betterAuth()` from `better-auth`, from that request's own cookies, and answered with the headers Better Auth wants set on the response, such as a refreshed session cookie. A session maps exactly as [`@priemskiyyy/anchor-better-auth`](../better-auth) maps it in the browser or on React Native, so one user is one principal on both sides.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

@@ -2,6 +2,8 @@
 
 WorkOS AuthKit sessions for Anchor, over the AuthKit client `createClient()` returned. The adapter answers the user AuthKit holds as a session of its id, in the organization and with the impersonator its latest refresh reported, hears every sign-in, refresh, organization switch and refresh failure through the callbacks you create the client with, mints the access token for each token profile, and ends the session with `signOut({ navigate: false })`, which never leaves the page. Signing in, the redirect callback, `switchToOrganization()` and every other flow stay with `anchor.native`, which is your client.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

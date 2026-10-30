@@ -40,7 +40,7 @@ Anchor does not sign anyone in, show login UI, run OAuth redirects, authorize re
 
 ## Status
 
-Anchor is at 0.1, not yet published. `CHANGELOG.md` lists what each package will ship with.
+Version 0.1.0 is an initial preview. APIs may change before 1.0. The adapters have automated SDK and contract tests, but have not run against live provider projects or on native devices. Read the [verification matrix](docs/verification.md) and [changelog](CHANGELOG.md) before adopting a package.
 
 ## Development
 
@@ -49,7 +49,7 @@ pnpm install --frozen-lockfile
 pnpm check
 ```
 
-`CONTRIBUTING.md` describes the layout, the style and the adapter rules.
+`CONTRIBUTING.md` describes the layout, the style and the adapter rules. See [SECURITY.md](SECURITY.md) for private vulnerability reports and [RELEASING.md](RELEASING.md) for the release process.
 
 ## License
 

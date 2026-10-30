@@ -2,6 +2,8 @@
 
 Your own backend as an Anchor session provider, through your own client. You give the adapter the functions that read the session, mint each token and end the session, and your client keeps everything it already owns: the address, cookies, authentication, retries and response validation. The adapter maps their answers onto the session contract, binds every token to the session that asked for it, and observes nothing.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

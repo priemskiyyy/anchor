@@ -2,6 +2,8 @@
 
 Better Auth sessions for Anchor, over the Better Auth client your application created, in the browser and on React Native with Better Auth's Expo plugin. The adapter subscribes to the client's session atom, the one behind `useSession` in every framework, publishes each settled change, and reads through that same atom. It answers the cookie session as an Anchor session of its user, and ends the session by signing it out on the server. Better Auth sessions are cookies, so the adapter declares no token profiles. Signing in, organizations and every other flow stay with `anchor.native`, which is your client.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

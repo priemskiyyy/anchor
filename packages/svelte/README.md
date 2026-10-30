@@ -4,6 +4,8 @@ Svelte bindings for Anchor: a provider component that publishes one Anchor, `use
 
 Works in Svelte 5.7 or newer. The package ships Svelte sources, so it is compiled by your application's own Svelte.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

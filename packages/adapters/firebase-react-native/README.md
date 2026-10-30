@@ -2,6 +2,8 @@
 
 Firebase Authentication sessions for Anchor on React Native, over the `Auth` instance of `@react-native-firebase/auth` your application uses. The adapter observes `onIdTokenChanged`, answers the signed-in user as a session of your project's issuer, mints the user's ID token for each token profile only when the native SDK minted it for the session's user, and ends the session with `signOut()`. It never initializes Firebase and never signs anyone in: that stays with `anchor.native`, which is your `Auth`. In a browser, or with the Firebase JS SDK on React Native, use `@priemskiyyy/anchor-firebase` instead.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

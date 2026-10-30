@@ -51,7 +51,10 @@ const adapterProjects = (
     return [];
   }
 
-  const adapterProject = project("packages/adapters", name);
+  const adapterProject = project("packages/adapters", name, {
+    dedupe: ["react-native", "@react-native-firebase/app"],
+  });
+
   const inline = inlinedDependencies[name];
 
   if (inline === undefined) {
@@ -281,6 +284,7 @@ const examples: Record<string, TestProjectConfiguration[]> = {
         name: "example-react",
         include: ["examples/react/src/**/*.test.{ts,tsx}"],
         environment: "jsdom",
+        server: { deps: { inline: [/@phosphor-icons\/react/] } },
       },
     },
   ],

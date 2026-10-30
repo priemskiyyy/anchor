@@ -2,6 +2,8 @@
 
 Microsoft Entra ID sessions for Anchor, over the MSAL.js `PublicClientApplication` your application created. The adapter answers the active account you chose with `setActiveAccount()` as a session of its environment, home account id and tenant, never the first account MSAL happens to cache, reads again whenever MSAL reports that the account may have changed, mints an access token for each token profile's scopes through `acquireTokenSilent` for exactly that account, and ends the session by clearing that account alone from MSAL's cache. `initialize()`, the login redirect and popup, `setActiveAccount()` and the Microsoft Entra logout page stay with `anchor.native`, which is your client.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

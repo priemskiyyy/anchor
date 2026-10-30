@@ -2,6 +2,8 @@
 
 Request-scoped WorkOS sessions for Anchor's server reads. Each request's sealed session cookie is opened with `loadSealedSession()` of the `@workos-inc/node` client your server created and verified with `authenticate()`; an expired one is refreshed with `refresh()`, and the newly sealed session comes back as a `Set-Cookie` header for the response. A session maps as [`@priemskiyyy/anchor-workos`](../workos) maps the same user in the browser, so one user is one principal on both sides.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh

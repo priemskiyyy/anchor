@@ -2,6 +2,8 @@
 
 Clerk sessions for Anchor, over the Clerk instance your application loaded, in the browser with `@clerk/clerk-js` and on React Native with Clerk Expo's instance. The adapter answers Clerk's active session as a session of its user, with the active organization, the Clerk session and the impersonating actor in its identity, hears every change through `addListener`, reports a pending session as the task it waits for, mints the session token or a JWT template's token for each token profile, and ends the session by signing out exactly its id without navigating. Signing in, `setActive()`, the session tasks and Clerk's components stay with `anchor.native`, which is your instance.
 
+Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+
 ## Installation
 
 ```sh
