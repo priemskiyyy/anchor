@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-supabase",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Supabase Auth sessions for Anchor: the session observed through onAuthStateChange, its access tokens and a local-scope sign-out, over the supabase-js client you inject.",
   "type": "module",
   "license": "MIT",

@@ -2,7 +2,7 @@
 
 Auth0 sessions for Anchor on React Native, over the react-native-auth0 client your application created. The adapter answers the login the credentials manager stores as a session of your Auth0 domain's issuer and the ID token's subject, read with react-native-auth0's own `parseIdToken`, mints an access token for each profile through the credentials manager, for one API's audience through `getApiCredentials`, and ends the session by clearing the credentials on the device. react-native-auth0 emits no events, so call `anchor.sync()` after a login. Logging in, saving the credentials and ending Auth0's own session in the browser stay with `anchor.native`, which is your client.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

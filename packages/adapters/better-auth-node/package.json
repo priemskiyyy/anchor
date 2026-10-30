@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-better-auth-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Better Auth sessions for Anchor's server reads: each request's session and the headers Better Auth wants set, over the server's auth instance you inject.",
   "type": "module",
   "license": "MIT",

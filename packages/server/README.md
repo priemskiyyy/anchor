@@ -2,7 +2,7 @@
 
 Request-scoped session reads for Anchor. One request goes in; its session state and the headers the provider wants set on the response come out, such as a refreshed session cookie. Each read stands alone: no observer, no Anchor shared between requests, and a provider that cannot tell answers `unavailable`, never `signed-out`. What reaches the page goes through an explicit allowlist, and the client's Anchor never takes it for evidence.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

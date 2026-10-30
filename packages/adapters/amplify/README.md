@@ -2,7 +2,7 @@
 
 Amazon Cognito sessions for Anchor, over the Amplify v6 Auth functions and Hub of your configured application. Amplify v6 exports functions over one configured singleton instead of an instance, so the adapter takes the functions of `aws-amplify/auth` and the `Hub` of `aws-amplify/utils`. It answers the user `getCurrentUser()` holds as a session of the ID token's user pool and subject, reads again on every Hub auth event and takes Amplify's `signedOut` as its own word, mints the session's access or ID token for each token profile through `fetchAuthSession()`, and ends the session by signing this device out with `signOut({ global: false })`. `Amplify.configure()`, signing in, the hosted UI and every other flow stay with `anchor.native`.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

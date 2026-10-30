@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Request-scoped session reads for Anchor: one request in, its session state and the headers the provider wants set out, with an explicit allowlist for hydration.",
   "type": "module",
   "license": "MIT",

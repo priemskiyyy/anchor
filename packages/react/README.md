@@ -2,7 +2,7 @@
 
 React bindings for Anchor: a provider that publishes one Anchor, `useAnchor()` for the Anchor itself, and `useSession()` for its session state or one selection of it. The hooks only observe: they never start the Anchor, read the provider, mint a token or end a session. React Native uses this package as it is.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-amplify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Amazon Cognito sessions for Anchor: Hub events observed, tokens from fetchAuthSession and a sign-out of this device only, over the Amplify Auth you inject.",
   "type": "module",
   "license": "MIT",

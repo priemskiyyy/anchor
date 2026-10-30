@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-solid",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Solid bindings for Anchor: a provider, and primitives that read the Anchor and its session state, with selectors, and never start, read or mint anything.",
   "type": "module",
   "license": "MIT",

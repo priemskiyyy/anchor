@@ -2,7 +2,7 @@
 
 Auth.js sessions for Anchor, over the `next-auth/react` client module of next-auth 4. The adapter answers the cookie session the server gives `getSession()` as a session of the user id your `session` callback adds, reads it again whenever another tab broadcasts a change, and ends it with `signOut({ redirect: false })`, which never leaves the page. Auth.js sessions are cookies, so the adapter declares no token profiles. Signing in, providers, `SessionProvider` and every other flow stay with `anchor.native`, which is the module.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

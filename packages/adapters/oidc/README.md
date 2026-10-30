@@ -2,7 +2,7 @@
 
 OpenID Connect sessions for Anchor, over the oidc-client-ts `UserManager` your application configured, for Okta, Keycloak, Zitadel, Authentik, Cognito's hosted UI, Entra or any other OpenID Connect provider. The adapter answers the stored user as a session of its ID token's issuer and subject, hears every sign-in, renewal and removal through the `UserManager`'s events, mints the user's access token for each token profile, and ends the session by removing the user and handing back the provider's end-session page. Signing in, handling the callback and every redirect stay with `anchor.native`, which is your `UserManager`.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

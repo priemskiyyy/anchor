@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-auth0",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Auth0 sessions for Anchor: the cached ID token, access tokens per audience and Auth0's logout page on ending, over the auth0-spa-js client you inject.",
   "type": "module",
   "license": "MIT",

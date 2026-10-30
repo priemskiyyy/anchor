@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-oidc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenID Connect sessions for Anchor: the user of Okta, Keycloak, Zitadel, Authentik, Cognito, Entra or any OIDC provider, its access token and the end-session page, over the oidc-client-ts UserManager you inject.",
   "type": "module",
   "license": "MIT",

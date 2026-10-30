@@ -40,7 +40,7 @@ Anchor does not sign anyone in, show login UI, run OAuth redirects, authorize re
 
 ## Status
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. The adapters have automated SDK and contract tests, but have not run against live provider projects or on native devices. Read the [verification matrix](docs/verification.md) and [changelog](CHANGELOG.md) before adopting a package.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. The adapters have automated SDK and contract tests, but have not run against live provider projects or on native devices. Read the [verification matrix](docs/verification.md) and [changelog](CHANGELOG.md) before adopting a package.
 
 ## Development
 

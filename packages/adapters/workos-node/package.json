@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-workos-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "WorkOS sessions for Anchor's server reads: each request's sealed session authenticated, refreshed when it expires, over the @workos-inc/node client you inject.",
   "type": "module",
   "license": "MIT",

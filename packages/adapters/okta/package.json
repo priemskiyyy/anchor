@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-okta",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Okta sessions for Anchor: the auth state manager's session, tokens from the token manager and a revoking sign-out that hands back the logout page, over the okta-auth-js instance you inject.",
   "type": "module",
   "license": "MIT",

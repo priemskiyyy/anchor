@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-authjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Auth.js sessions for Anchor: the cookie session, read and ended without a redirect, over the next-auth/react client you inject.",
   "type": "module",
   "license": "MIT",

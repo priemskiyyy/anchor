@@ -2,7 +2,7 @@
 
 Browser lifecycle hints for Anchor: read the session again when the page becomes visible, when the browser comes back online, or when another tab's session changes. A hint is only a reason to read. It never proves that a session is valid, never refreshes a token, and never tells one tab who is signed in in another: the read that follows asks the provider.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

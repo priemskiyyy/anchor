@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-firebase-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Firebase Auth sessions for Anchor's server reads: each request's session cookie or ID token verified, over the firebase-admin Auth you inject.",
   "type": "module",
   "license": "MIT",

@@ -2,7 +2,7 @@
 
 Keycloak sessions for Anchor, over the keycloak-js instance your application created. The adapter answers the access token keycloak-js holds as a session of its realm's issuer and subject, chains the callbacks you assigned so it hears every login, refresh and logout without replacing them, mints the access token through `updateToken()` for each token profile, and ends the session by clearing keycloak-js's tokens and handing back Keycloak's logout page. It never calls `logout()`, which navigates by itself. `init()`, `login()`, `register()` and every other flow stay with `anchor.native`, which is your instance.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

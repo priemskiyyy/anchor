@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-keycloak",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Keycloak sessions for Anchor: logins, refreshes and logouts through the callbacks you assigned, access tokens refreshed on demand and the logout page on ending, over the keycloak-js instance you inject.",
   "type": "module",
   "license": "MIT",

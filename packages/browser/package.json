@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-browser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Browser lifecycle hints for Anchor: read the session again when the page becomes visible, the browser comes back online, or another tab's session changes.",
   "type": "module",
   "license": "MIT",

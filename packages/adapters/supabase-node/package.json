@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-supabase-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Supabase Auth sessions for Anchor's server reads: each request's session verified with Supabase Auth, and the cookies Supabase refreshes, over the @supabase/ssr server client factory you inject.",
   "type": "module",
   "license": "MIT",

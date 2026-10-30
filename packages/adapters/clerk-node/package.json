@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-clerk-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Clerk sessions for Anchor's server reads: each request authenticated with its organization and actor, and the headers Clerk wants set, over the @clerk/backend client you inject.",
   "type": "module",
   "license": "MIT",

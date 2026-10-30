@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-devtools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Devtools for Anchor: a framework-independent inspector for the lifecycle, the session, the operations in flight and a timeline of diagnostics, with the principal hidden until asked and React, Vue, Solid and Svelte wrappers.",
   "type": "module",
   "license": "MIT",

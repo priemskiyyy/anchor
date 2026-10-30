@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-react-native",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native lifecycle hint for Anchor: read the session again when the app returns to the foreground, through the AppState you pass.",
   "type": "module",
   "license": "MIT",

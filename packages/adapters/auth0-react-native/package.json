@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-auth0-react-native",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Auth0 sessions for Anchor on React Native: the credentials manager's session and its access tokens, over the react-native-auth0 client you inject.",
   "type": "module",
   "license": "MIT",

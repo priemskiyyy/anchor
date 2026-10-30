@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-clerk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Clerk sessions for Anchor: the session with its organization, actor and pending task observed through the listener, and session tokens per JWT template, over the Clerk instance you inject.",
   "type": "module",
   "license": "MIT",

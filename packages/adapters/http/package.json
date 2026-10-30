@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-http",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Your own backend's sessions for Anchor: the session your client reads, tokens bound to the session that asked, and its ending, over the functions you inject.",
   "type": "module",
   "license": "MIT",

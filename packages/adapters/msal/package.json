@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-msal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Microsoft Entra ID sessions for Anchor: the explicit active account through MSAL's events, access tokens per set of scopes and a sign-out of that account alone, over the MSAL.js client you inject.",
   "type": "module",
   "license": "MIT",

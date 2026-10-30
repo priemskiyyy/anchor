@@ -16,7 +16,7 @@ Runtime owners and helpers live in `src/utils/`, shared helpers in `src/utils/co
 
 Package roots export the supported public API explicitly, one export per file and no `export *`, and no other file is a barrel. The entry points are `src/index.ts`, the core's `src/mock.ts` and `src/testing.ts`, and the devtools wrappers `react`, `vue`, `solid` and `svelte`. `src/index.test.ts` pins each entry's runtime names with `Object.keys`.
 
-Every `exports` entry is `types`, then `import`, then `default`, with `import` and `default` on the same ESM file, because React Native consumers run Jest, which needs a resolvable condition. The Svelte binding alone uses `types` then `svelte`. Every package is version `0.1.0` under the MIT license, and the core has zero runtime dependencies.
+Every `exports` entry is `types`, then `import`, then `default`, with `import` and `default` on the same ESM file, because React Native consumers run Jest, which needs a resolvable condition. The Svelte binding alone uses `types` then `svelte`. Every package is version `0.1.1` under the MIT license, and the core has zero runtime dependencies.
 
 ## Code
 

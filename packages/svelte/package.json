@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor-svelte",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Svelte bindings for Anchor: a provider component, and utilities that read the Anchor and its session state, with selectors, and never start, read or mint anything.",
   "type": "module",
   "license": "MIT",

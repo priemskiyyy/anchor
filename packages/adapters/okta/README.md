@@ -2,7 +2,7 @@
 
 Okta sessions for Anchor, over the okta-auth-js `OktaAuth` instance your application created. The adapter answers the auth state okta-auth-js computes as a session of its ID token's issuer and subject, hears every change through the auth state manager, mints the token manager's access token for each token profile, and ends the session by revoking its tokens, clearing the token manager and handing back Okta's sign-out page. It never calls `signOut()`, which navigates by itself. Signing in, the login redirect and `oktaAuth.start()` stay with `anchor.native`, which is your instance.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

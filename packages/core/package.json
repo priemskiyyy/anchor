@@ -1,6 +1,6 @@
 {
   "name": "@priemskiyyy/anchor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Provider-independent session state for TypeScript: one typed, reactive, race-safe view of the current session, with tokens and sign-out bound to the session they belong to.",
   "type": "module",
   "license": "MIT",

@@ -2,7 +2,7 @@
 
 Request-scoped Supabase Auth sessions for Anchor's server reads. Each request is read through a `@supabase/ssr` server client created over that request's own cookies, its session verified with Supabase Auth through `auth.getUser()`, and the headers Supabase wants set on the response are handed back with it: the cookies it refreshes or deletes, and the cache headers that go with them. A session maps exactly as [`@priemskiyyy/anchor-supabase`](../supabase) maps it in the browser or on React Native, so one user is one principal on both sides.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 

@@ -2,7 +2,7 @@
 
 Request-scoped Firebase Auth sessions for Anchor's server reads. Each request is read through the firebase-admin `Auth` your server initialized, by the credential that request carries: a bearer ID token in its `Authorization` header, or else the session cookie your server set with `createSessionCookie()`. A session maps as [`@priemskiyyy/anchor-firebase`](../firebase) maps the same user in the browser, so one user is one principal on both sides.
 
-Version 0.1.0 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
+Version 0.1.1 is an initial preview. APIs may change before 1.0. See the [verification limits](https://github.com/priemskiyyy/anchor/blob/main/docs/verification.md) before adopting an adapter.
 
 ## Installation
 
